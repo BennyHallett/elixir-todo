@@ -23,4 +23,13 @@ defmodule ExTodoTest do
     assert ["Same"] == list
   end
 
+  test "remove an item from the list" do
+    list = ExTodo.TodoList.create
+    |> ExTodo.TodoList.add("AAA")
+    |> ExTodo.TodoList.add("BBB")
+    |> ExTodo.TodoList.add("CCC")
+
+    assert ["CCC", "AAA"] == ExTodo.TodoList.remove(list, "BBB")
+  end
+
 end
